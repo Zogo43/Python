@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css"/>
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+    <title>Python</title>
+</head>
+<body>
+    <h1>
+        Currency converter
+    </h1>
+    <form>
+        <label for="amount">
+            Amount
+        </label>
+        <input type="text" id="input_amount" name="amount" placeholder="1.00">
+    </form>
+    <form>
+        <label for="from">
+            From
+        </label>
+        <select name="first_currency" id="first_currency">
+            <option value="eur">
+                Euro
+            </option>
+            <option value="usd">
+                Dollar
+            </option>
+        </select>
+    </form>
+    <form>
+        <label for="to">
+            To
+        </label>
+        <select name="second_currency" id="second_currency">
+            <option value="usd">
+                Dollar
+            </option>
+            <option value="eur">
+                Euro
+            </option>
+        </select>
+    </form>
+    <button id="convert" py-click="result()">
+        Convert
+    </button>
+    <div class="result">
+        <h2>
+            Result
+        </h2>
+        <p id="output">
+            NaN
+        </p>
+    </div>
+    <py-script>
+        input_amount = Element("input_amount")
+        output = Element("output")
+
+        def result() :
+            output.element.innerText = input_amount
+    </py-script>
+</body>
+</html>

@@ -1,15 +1,21 @@
 import random
+import math
 
 player = True
 
 name = input("Hello, What's your name? ")
-input("In this game you have to guess my number. You have a max of 5 tries")
+input("In this game you have to guess my number")
 
 while player == True:
-    rng = random.randint(0, 10)
+    print(name + ", please give me an intervall of numbers")
+    min_intervall = int(input())
+    max_intervall = int(input())
+    rng = random.randint(min_intervall, max_intervall)
+    difference = max_intervall - min_intervall
+    tries = math.floor(difference * 0.4)
     count = 0
-    print("Okay! " + name + ", i am thinking of a number between 0 and 10")
-    while count < 5:
+    print("Okay! " + name + ", you have " + str(tries) + " tries")
+    while count < tries:
         count = count + 1
         guess = int(input())
         if guess < rng:
